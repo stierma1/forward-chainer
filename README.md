@@ -21,7 +21,7 @@ This module does use generators so make sure if you plan to use it in the browse
 plan returns a generator that produces arrays of PlanNodes.  These nodes in order from start to finish contain the information that will produce the acceptable results.
 
 ```
-var plan = require("plan");
+var plan = require("forward-chainer");
 
 var myPlanGenerator = plan(myActions, myInitialState, isAcceptable, myMaxDepth);
 
