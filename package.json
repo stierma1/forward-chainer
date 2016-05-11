@@ -1,0 +1,34 @@
+{
+  "name": "forward-chainer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/plan.js",
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha test"
+  },
+  "keywords": [
+        "rules engine",
+        "hanoi",
+        "immutable",
+        "ai",
+        "forward-chaining"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stierma1/forward-chainer.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stierma1/forward-chainer/issues"
+  },
+  "homepage": "https://github.com/stierma1/forward-chainer#readme",
+  "dependencies": {
+    "immutable": "^3.8.1",
+    "uuid": "^2.0.2"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5"
+  }
+}
