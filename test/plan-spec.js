@@ -93,9 +93,12 @@ describe("plan", function(){
     ];
 
     for(var myPlan of plan(actions, {}, isAcceptable,2)){
-      expect(myPlan.value.length).to.equal(2);
-      expect(myPlan.value[0].actionObj.action).to.equal("act2");
-      expect(myPlan.value[1].actionObj.action).to.equal("act1");
+      expect(myPlan.length).to.equal(2);
+      if(myPlan[0].actionObj.action === "act1"){
+        expect(myPlan[1].actionObj.action).to.equal("act2");
+      } else {
+        expect(myPlan[1].actionObj.action).to.equal("act1");
+      }
     }
   });
 
@@ -223,7 +226,7 @@ describe("plan", function(){
       return state.get("stack3").get(0) === 0 && state.get("stack3").get(1) === 1 && state.get("stack3").get(2) === 2;
     }
 
-    var myPlan = plan(actions, {stack1:[0,1,2], stack2:[], stack3:[]}, isHanoi, 8);
+    var myPlan = plan(actions, {stack1:[0,1,2], stack2:[], stack3:[]}, isHanoi, 7);
 
     var firstPlan = myPlan.next();
 
