@@ -45,21 +45,21 @@ Actions must implement 2 functions
 
 Note: Its very useful to implement a do function as well, since the action will be returned in the plan but it is not necessary
 
-### possible(ImmutableJsMap currentState, Object history) -> bool
+### possible(ImmutableJsMap currentState, Array<PlanNode> history) -> bool
 
 The possible function is used to detect whether an action is possible based on current state.
-History is a hash map every event in the system.  If you need to find previous actions do the following
+History is an array of PlanNodes executed from start to current
 
 ```
 possible : function(currentState, history){
-  var previousPlanObject = history[currentState.get("_$idx")];
+  var previousPlanObject = history[history.length - 1];
   //if previousPlanObject === undefined then there was no previous action and was derived from initial state
   var previousAction = previousPlanObject.action;
   return (some boolean conditional statement);
 }
 ```
 
-### updateState(ImmutableJsMap currentState, Object history) -> ImmutableJsMap
+### updateState(ImmutableJsMap currentState, Array<PlanNode> history) -> ImmutableJsMap
 
 The updateState function takes currentState and history and produces a new state.  Note Immutable Js will create new objects whenever a property is changed and will NOT contaminate the current state.
 
@@ -182,7 +182,7 @@ var isHanoi = function(state){
   return state.get("stack3").get(0) === 0 && state.get("stack3").get(1) === 1 && state.get("stack3").get(2) === 2;
 }
 
-var myPlan = plan(actions, {stack1:[0,1,2], stack2:[], stack3:[]}, isHanoi, 8);
+var myPlan = plan(actions, {stack1:[0,1,2], stack2:[], stack3:[]}, isHanoi, 7);
 
 var firstPlan = myPlan.next();
 

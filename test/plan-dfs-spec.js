@@ -1,4 +1,4 @@
-var plan = require("../lib/plan");
+var plan = require("../lib/plan-dfs");
 var chai = require("chai");
 var expect = chai.expect;
 
@@ -6,7 +6,7 @@ var isAcceptable = function(state){
   return state.get("act1_changed_state") && state.get("act2_changed_state");
 }
 
-describe("plan", function(){
+describe("plan-dfs", function(){
 
   it("should return a plan", function(){
     var actions = [
@@ -34,9 +34,9 @@ describe("plan", function(){
 
     var firstPlan = myPlan.next();
 
-    expect(firstPlan.value.length).to.equal(2);
-    expect(firstPlan.value[0].actionObj.action).to.equal("act2");
-    expect(firstPlan.value[1].actionObj.action).to.equal("act1");
+    expect(firstPlan.value.length).to.equal(10);
+    expect(firstPlan.value[0].actionObj.action).to.equal("act1");
+    expect(firstPlan.value[9].actionObj.action).to.equal("act2");
   });
 
   it("should return a plan only if actions are possible", function(){
@@ -65,9 +65,9 @@ describe("plan", function(){
 
     var firstPlan = myPlan.next();
 
-    expect(firstPlan.value.length).to.equal(2);
+    expect(firstPlan.value.length).to.equal(10);
     expect(firstPlan.value[0].actionObj.action).to.equal("act1");
-    expect(firstPlan.value[1].actionObj.action).to.equal("act2");
+    expect(firstPlan.value[9].actionObj.action).to.equal("act2");
   });
 
   it("should iterate to get all possible plans", function(){
