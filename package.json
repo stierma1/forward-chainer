@@ -1,6 +1,6 @@
 {
   "name": "forward-chainer",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -28,6 +28,10 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
-    "mocha": "^2.4.5"
+    "mocha": "^2.4.5",
+    "babel-plugin-syntax-async-functions": "^6.1.4",
+    "babel-plugin-transform-regenerator": "^6.1.4",
+    "babel-polyfill": "^6.1.4",
+    "babel-preset-es2015": "^6.1.4"
   }
 }

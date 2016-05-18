@@ -39,6 +39,25 @@ allPlans //<-- an array of every possible plan
 
 ```
 
+### planAsync(Array<Actions> actions, Object initialState, function(ImmutableJsMap) -> Promise(bool) isAcceptable, integer(optional defaults to 10) maxDepth) -> Promise(Continuation(PlanNode))
+
+plan returns a promise that produces continuations of PlanNodes.  These nodes in order from start to finish contain the information that will produce the acceptable results.  This implementation can accept actions that return Promises rather than synchronous values and isAcceptable can return a promise as wells.
+
+```
+var plan = require("forward-chainer").planAsync;
+
+var myPlan = plan(myActions, myInitialState, isAcceptable, myMaxDepth);
+
+myPlan.then((firstPlan) => {
+  firstPlan.value //<-- equals firstPlan
+  return firstPlan.continue();
+})
+.then((nextPlan) => {
+  nextPlan.value //<--equals secondPlan
+})
+
+```
+
 ### Creating Actions
 
 Actions must implement 2 functions
