@@ -1,17 +1,17 @@
 {
   "name": "forward-chainer",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha test"
   },
   "keywords": [
-        "rules engine",
-        "hanoi",
-        "immutable",
-        "ai",
-        "forward-chaining"
+    "rules engine",
+    "hanoi",
+    "immutable",
+    "ai",
+    "forward-chaining"
   ],
   "repository": {
     "type": "git",
@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/stierma1/forward-chainer#readme",
   "dependencies": {
+    "continuations": "^1.0.0",
     "immutable": "^3.8.1"
   },
   "devDependencies": {
